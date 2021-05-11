@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau film{% endblock %}
+
+{% block body %}
+    <div class="container justify-content-center mt-5">
+        <div class="col-8 ">
+    <h1>Ajouter un nouveau film à la liste</h1>
+
+    {{ include('film/_form.html.twig') }}
+
+        
+        </div>
+    </div>
+{% endblock %}
