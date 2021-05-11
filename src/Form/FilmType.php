@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class FilmType extends AbstractType
 {
@@ -18,15 +19,24 @@ class FilmType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => 'Le titre du film',
                 'empty_data' => "", 
+                'attr' => [
+                    'placeholder' => 'Entrez le titre ici'
+                ]
             ])
             ->add('affiche', TextType::class, [
                 'label' => 'L\'adresse de l\'image',
                 'empty_data' => "", 
+                'attr' => [
+                    'placeholder' => 'Mettre le lien ici'
+                ]
                 
             ])
             ->add('recompense', TextType::class, [
                 'label' => 'Les récompenses que le film a obtenu',
                 'empty_data' => "",
+                'attr' => [
+                    'placeholder' => 'Entrez les noms des récompenses ici'
+                ]
             ])
             ->add('annee', DateType::class, [
                 'label' => 'Date de sortie',
@@ -37,14 +47,15 @@ class FilmType extends AbstractType
                 'label' => 'Dites nous en plus sur le synopsis',
                 'empty_data' => "",
         
-            ]);
+            ])
+            ->add('submit', SubmitType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Film::class,
-            'attr' => [
+            'empty_data' => [
                 'novalidate' => 'novalidate'
             ]
         ]);
