@@ -10,12 +10,10 @@
     
     <table class="table table-hover table-dark justify-content-center text-justify">
         <thead>
-            <tr class="text-center">
+            <tr class="text-center align-content-center">
             <div class="text-center"><a href="{{ path('film_new') }}" class="btn btn-danger my-5">Ajouter un nouveau film</a></div>
                 <th>Titre</th>
                 <th>Affiche</th>
-                <th>Recompense</th>
-                <th>Annee</th>
                 <th>Synopsis</th>
             </tr>
         </thead>
@@ -23,9 +21,8 @@
         {% for film in films %}
             <tr>
                 <td>{{ film.titre }}</td>
+                {# <td>{{ film.realisateur. }}</td> #}
                 <td><img src="{{ film.affiche }}" class="image"></td>
-                <td>{{ film.recompense }}</td>
-                <td>{{ film.annee ? film.annee|date('Y-m-d') : '' }}</td>
                 <td>{{ film.synopsis }}</td>
                 <td>
                 <div class="align-self-center">

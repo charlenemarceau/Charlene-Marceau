@@ -96,6 +96,12 @@ class FilmController extends AbstractController
 
         return $this->redirectToRoute('film_index');
     }
+    /**
+         * @Route("/film/{id}/deletecrsf", name="film_index_delete_csrf", methods={"DELETE"})
+         * 
+         * $request-request->get()   : POST
+         * $request->query->get()     : GET
+         */
     public function delete2(Film $film, EntityManagerInterface $em, Request $request) {
         $sumbmittedToken = $request->request->get('token');
         //dd($sumbmittedToken);
